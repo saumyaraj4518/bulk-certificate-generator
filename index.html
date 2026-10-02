@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="style.css">
+<title>Bulk Certificate Generator</title>
+ 
+ 
+</head>
+<body>
+    
+<header>
+  <h1>Bulk Certificate Generator</h1>
+  <p>Runs entirely in your browser — nothing is uploaded anywhere.</p>
+</header>
+<main>
+  <section>
+    <div class="card">
+      <h2>1 · Template</h2>
+      <input type="file" id="tpl" accept="image/*">
+      <div class="row" style="margin-top:8px"><button id="sample">Use sample template</button></div>
+    </div>
+    <div class="card">
+      <h2>2 · Names</h2>
+      <input type="file" id="namesFile" accept=".xlsx,.xls,.csv,.txt">
+      <label for="names">…or paste one name per line</label>
+      <textarea id="names">Aarav Sharma
+Priya Verma
+Rohan Mehta</textarea>
+      <div class="msg" id="count"></div>
+    </div>
+    <div class="card">
+      <h2>3 · Text style</h2>
+      <label for="font">Font</label>
+      <select id="font">
+        <option value="Georgia, serif">Georgia</option>
+        <option value="'Times New Roman', serif">Times New Roman</option>
+        <option value="'Palatino Linotype', Palatino, serif">Palatino</option>
+        <option value="Arial, Helvetica, sans-serif">Arial</option>
+        <option value="Verdana, sans-serif">Verdana</option>
+        <option value="'Trebuchet MS', sans-serif">Trebuchet</option>
+        <option value="'Brush Script MT', cursive">Brush Script</option>
+        <option value="'Courier New', monospace">Courier New</option>
+      </select>
+      <label for="size">Font size: <b id="sizeV"></b> px</label>
+      <input type="range" id="size" min="12" max="400" value="80">
+      <div class="row">
+        <div><label for="color">Color</label><input type="color" id="color" value="#1b2a49"></div>
+        <div><label for="weight">Style</label>
+          <select id="weight"><option value="normal">Regular</option><option value="bold">Bold</option><option value="italic">Italic</option><option value="italic bold">Bold italic</option></select></div>
+      </div>
+      <div class="row">
+        <div><label for="px">X (%)</label><input type="number" id="px" min="0" max="100" step="0.1" value="50"></div>
+        <div><label for="py">Y (%)</label><input type="number" id="py" min="0" max="100" step="0.1" value="50"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>4 · Download</h2>
+      <div class="row">
+        <button class="p" id="dlPdf">Combined PDF</button>
+        <button class="p" id="dlZip">Images (ZIP)</button>
+      </div>
+      <button id="dlOne" style="width:100%;margin-top:8px">Current preview as PNG</button>
+      <div class="bar" id="bar"><i></i></div>
+      <div class="msg" id="status"></div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="canvaswrap"><canvas id="cv"></canvas></div>
+    <div class="nav">
+      <button id="prev">◀</button><span id="who"></span><button id="next">▶</button>
+    </div>
+    <div class="hint">Drag the name on the preview to position it. Text is centered on the dot.</div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+ 
+</body>
+</html>
