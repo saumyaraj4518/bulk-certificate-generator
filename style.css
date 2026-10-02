@@ -1,0 +1,284 @@
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: #f5f4f0;
+  color: #1f2328;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+header {
+  padding: 20px 20px 4px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+header p {
+  margin: 2px 0 0;
+  color: #6b7280;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 20px 40px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 860px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e0d9;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  margin: 0 0 10px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 8px 0 3px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px 9px;
+  border: 1px solid #e2e0d9;
+  border-radius: 8px;
+  background: #f5f4f0;
+  color: #1f2328;
+  font: inherit;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input[type="file"] {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+input[type="color"] {
+  width: 44px;
+  height: 34px;
+  border: 1px solid #e2e0d9;
+  border-radius: 8px;
+  padding: 2px;
+  background: #f5f4f0;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #2f5d50;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.row > * {
+  flex: 1;
+}
+
+button {
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e0d9;
+  background: #fff;
+  color: #1f2328;
+  cursor: pointer;
+}
+
+button.p {
+  background: #2f5d50;
+  color: #fff;
+  border-color: #2f5d50;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stage {
+  position: sticky;
+  top: 12px;
+}
+
+.canvaswrap {
+  background: repeating-conic-gradient(
+      #e2e0d9 0 25%,
+      transparent 0 50%
+    )
+    0 0 / 16px 16px;
+  border: 1px solid #e2e0d9;
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  cursor: grab;
+  touch-action: none;
+}
+
+canvas.drag {
+  cursor: grabbing;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.nav span {
+  min-width: 140px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.hint {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.msg {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.bar {
+  height: 6px;
+  background: #e2e0d9;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+  display: none;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #2f5d50;
+}
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #17181a;
+    color: #ececec;
+  }
+
+  .card {
+    background: #222427;
+    border-color: #383b3f;
+  }
+
+  .card h2,
+  label,
+  header p,
+  .nav span,
+  .hint,
+  .msg {
+    color: #9aa0a6;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea,
+  input[type="color"] {
+    background: #17181a;
+    color: #ececec;
+    border-color: #383b3f;
+  }
+
+  button {
+    background: #222427;
+    color: #ececec;
+    border-color: #383b3f;
+  }
+
+  button.p {
+    background: #6fb59f;
+    color: #10201a;
+    border-color: #6fb59f;
+  }
+
+  .canvaswrap {
+    background: repeating-conic-gradient(
+        #383b3f 0 25%,
+        transparent 0 50%
+      )
+      0 0 / 16px 16px;
+    border-color: #383b3f;
+  }
+
+  .bar {
+    background: #383b3f;
+  }
+
+  .bar i {
+    background: #6fb59f;
+  }
+
+  input[type="range"] {
+    accent-color: #6fb59f;
+  }
+}
+
